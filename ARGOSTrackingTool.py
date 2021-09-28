@@ -53,6 +53,8 @@ for lineString in line_list[17:]:
         date_dict[record_id] = obs_date
         coord_dict[record_id] = obs_lat, obs_long
  
+
+        
 #Create empty list to hold matching keys
 matching_keys = []
 #Loop through items in date dict and collect keys for matching 
@@ -63,6 +65,10 @@ for date_item in date_dict.items():
     if the_date == user_date:
         #Add key to list
         matching_keys.append(the_key)
+        
+#If no records found tell the user
+if len(matching_keys) == 0:
+    print(f"No observations on {user_date}")
 
 #Reveal location for each key in matching keys
 for matching_key in matching_keys:
